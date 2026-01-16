@@ -6,6 +6,8 @@
 > This project was created as a **technical assignment for a job application**  
 > and is intended for demonstration purposes only.
 
+📎 [Technical Assignment Requirements (PDF)](./TechnicalAssignment.pdf)
+
 ---
 
 ## 🛠 Tech Stack
