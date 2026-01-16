@@ -6,7 +6,7 @@
 > This project was created as a **technical assignment for a job application**  
 > and is intended for demonstration purposes only.
 
-📎 [Technical Assignment Requirements (PDF)](./TechnicalAssignment.pdf)
+📎 [Technical Assignment Requirements (PDF)](./CSharp%20home%20test%20task%20v2.pdf)
 
 ---
 
