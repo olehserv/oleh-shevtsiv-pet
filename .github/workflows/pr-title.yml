@@ -21,4 +21,3 @@ jobs:
             chore
             docs
           requireScope: false
-          allowBreakingChanges: true
