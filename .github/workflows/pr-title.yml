@@ -2,6 +2,7 @@ name: PR title check
 
 on:
   pull_request:
+    branches: [ "main", "dev" ]
     types: [opened, edited, synchronize]
 
 jobs:
