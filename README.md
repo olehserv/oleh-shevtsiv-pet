@@ -58,15 +58,21 @@ dotnet run .
 docker-compose up --build
 ```
 
----
-
-## 🧪 Testing
+### 🧪 Testing
 ```bash
 <command to run unit tests>
 ```
 ```bash
 <command to run integration tests>
 ```
+
+---
+
+## 🔀 Pull Request Guidelines
+This repository enforces Conventional Commits and automated versioning.
+
+> [!IMPORTANT]
+> Before opening a pull request, please review the ➡️ [PR guidelines](./.github/pull_request_template.md):
 
 ---
 
@@ -79,5 +85,3 @@ See the [LICENSE](LICENSE) file for details.
 ## 👤 Author
 **Oleh Shevtsiv**  
 GitHub: https://github.com/olehserv
-
----
