@@ -8,6 +8,7 @@ Allowed prefixes:
 - feat!:  <summary>
 - chore:  <summary>
 - docs:   <summary>
+- test:   <summary>
 
 Examples:
 - feat: add docker support
@@ -15,6 +16,7 @@ Examples:
 - feat!: change authentication flow
 - chore: configure CI workflow
 - docs: update README
+- test: add integration tests
 
 Tagging/versions are automated with github-tag-action (official docs):
 https://github.com/mathieudutour/github-tag-action/blob/master/README.md
@@ -34,6 +36,7 @@ And please keep it short 🙏
 - [ ] feat! (breaking change)
 - [ ] chore (maintenance / configuration)
 - [ ] docs (documentation only)
+- [ ] test (unit/integration tests)
 
 ## 🧪 How to test
 <!--
@@ -45,7 +48,7 @@ Example:
 -->
 
 ## ✅ Checklist
-- [ ] PR title follows Conventional Commits (`feat:` / `fix:` / `feat!:` / `chore:` / `docs:`)
+- [ ] PR title follows Conventional Commits (`feat:` / `fix:` / `feat!:` / `chore:` / `docs:` / `test:`)
 - [ ] Code builds successfully
 - [ ] Tests pass (if applicable)
 - [ ] Documentation updated (if applicable)

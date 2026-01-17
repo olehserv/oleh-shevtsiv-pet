@@ -1,0 +1,39 @@
+name: Release PR source branch policy
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, reopened, synchronize, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  enforce-source-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Release PR source branch naming
+        id: validate
+        shell: bash
+        run: |
+          set -euo pipefail #terminate on first exit, avoid uninitialized vars, show pipe errors
+
+          BASE="${{ github.event.pull_request.base.ref }}"
+          HEAD="${{ github.event.pull_request.head.ref }}"
+
+          echo "Base: $BASE"
+          echo "Head: $HEAD"
+
+          # Only enforce for PRs targeting main (extra safety)
+          if [[ "$BASE" != "main" ]]; then
+            echo "Not targeting main; skipping."
+            exit 0
+          fi
+
+          # Enforce release/vX.Y.Z where all are digits
+          if [[ ! "$HEAD" =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::PRs into 'main' must come from branches named 'release/v{major}.{minor}.{patch}'. Example: release/v1.2.3"
+            exit 1
+          fi
+
+          echo "OK: source branch matches required pattern."
