@@ -20,5 +20,8 @@ jobs:
 
       - name: Verify required files exist
         run: |
+          test -f .gitignore
+          test -f "CSharp home test task v2.pdf"
+          test -f README.md
           test -f LICENSE
-          echo "OK: README.md and LICENSE found"
+          echo "OK: All required files are present."
