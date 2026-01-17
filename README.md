@@ -68,18 +68,8 @@ docker-compose up --build
 
 ---
 
-## 🔀 Pull Request Guidelines
-This repository enforces Conventional Commits and automated versioning.
-
-> [!IMPORTANT]
-> PR titles are validated automatically and must start with:
-> - `feat:`
-> - `fix:`
-> - `feat!:`
-> - `chore:`
-> - `docs:`
-> 
-> For details about the commit message format, see the official ➡️[**Conventional Commits**](https://www.conventionalcommits.org/en/v1.0.0/) specification.
+## 🤝 Contributing
+[**Follow**](./CONTRIBUTING.md) for more details.
 
 ---
 
@@ -91,4 +81,4 @@ See the [LICENSE](LICENSE) file for details.
 
 ## 👤 Author
 **Oleh Shevtsiv**  
-GitHub: https://github.com/olehserv
+LinkedIN: https://www.linkedin.com/in/olegshevtsiv/
