@@ -72,7 +72,14 @@ docker-compose up --build
 This repository enforces Conventional Commits and automated versioning.
 
 > [!IMPORTANT]
-> Before opening a pull request, please review the ➡️ [PR guidelines](./.github/pull_request_template.md):
+> PR titles are validated automatically and must start with:
+> - `feat:`
+> - `fix:`
+> - `feat!:`
+> - `chore:`
+> - `docs:`
+> 
+> For details about the commit message format, see the official ➡️[**Conventional Commits**](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
 ---
 
