@@ -80,7 +80,7 @@ function renderBranchPolicyBody(headRef, message) {
 function renderVersionBody(headRef, previousTag, expectedTag, calculatedTag) {
     const statusLine = expectedTag === calculatedTag
         ? "✅ **Version matches. Ready to tag.**"
-        : "❌ **Version mismatch. Tagging is blocked.**";
+        : "❌ **Version mismatch. PR is blocked.**";
 
     return [
         "## 🔖 Release version validation",
