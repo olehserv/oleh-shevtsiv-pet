@@ -86,5 +86,5 @@ LinkedIN: https://www.linkedin.com/in/olegshevtsiv/
 ---
 
 > ### P.S.
-> ![Oh no, I was catched😢](etc\img\I_see_youu.png)
+> ![Oh no, I was catched😢](etc/img/I_see_youu.png)
 > # 👀
