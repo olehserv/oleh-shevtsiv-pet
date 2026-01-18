@@ -1,0 +1,48 @@
+name: Tag on release merge
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ closed ]
+
+permissions: {}
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+
+    if: >
+      github.event.pull_request.merged == true
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate release PR
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const validatePR = require('./.github/scripts/validate-release-pr.js');
+            const pr = context.payload.pull_request;
+            const baseBranch = 'main';
+            const result = validatePR({ pr, baseBranch, core, setFailed: false });
+
+            core.setOutput('shouldTag', result.ok ? 'true' : 'false' );
+
+            if (!result.ok) {
+              core.setFailed(result.message);
+            }
+
+      - name: Bump version and push tag
+        if: 
+          steps.check.outputs.shouldTag == 'true'
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ github.token }}
+          tag_prefix: "v"
+          default_bump: "patch"
