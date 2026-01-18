@@ -48,6 +48,19 @@ When the project is ready for a release:
    - `main` represents the latest released state
    - (Optional but recommended) merge `main` back into `dev` to keep branches in sync
 
+5. 👉 **Mandatory backmerge after release (main → dev)** 👈
+
+   After a `release/*` branch is merged into `main`, it is **mandatory** to create a Pull Request from:
+
+   ```text
+   main → dev
+   ```
+
+   This rule exists to ensure that:
+   - `dev` always contains the latest released code
+   - Hotfixes or release-only changes are not lost
+   - Ongoing development continues from the correct baseline
+
 > [!IMPORTANT]
 > Pull Requests to `main` are **only allowed from `release/vX.Y.Z` branches**.
 > Pull Requests that do not follow this naming convention are automatically **blocked by CI**.
