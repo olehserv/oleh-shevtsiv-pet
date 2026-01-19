@@ -1,0 +1,53 @@
+name: Release PR policy
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ opened, reopened, synchronize, edited ]
+
+permissions: {}
+
+jobs:
+  check-release-pr:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: write
+    
+    steps:
+      - name: Checkout (full history needed for tag calculation)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate release PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const validatePR = require('./.github/scripts/validate-release-pr.js');
+            const pr = context.payload.pull_request;
+            const baseBranch = 'main';
+            validatePR({ pr, baseBranch, core, setFailed: true });
+
+      # 2) Calculate the next tag (dry-run)
+      - name: Calculate next tag (dry-run)
+        id: dry
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ github.token }}
+          dry_run: true
+          fetch_all_tags: true
+
+      # 3) Compare calculated next tag with release branch version
+      - name: Validate next tag matches release branch version
+        uses: actions/github-script@v7
+        env:
+          CALCULATED_TAG: ${{ steps.dry.outputs.new_tag }}
+          PREVIOUS_TAG: ${{ steps.dry.outputs.previous_tag }}
+          COMMENT_MODE: always
+        with:
+          script: |
+            const validateTag = require('./.github/scripts/validate-release-tag.js');
+            await validateTag({ github, context, core, baseBranch: 'main' });

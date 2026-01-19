@@ -1,0 +1,32 @@
+name: Enforce backmerge PR after release
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  check-backmerge-pr:
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: write
+
+    name: Check if backmerge PR exists
+    runs-on: ubuntu-latest
+
+    # Run only when a release/* PR is merged into main
+    if: >
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.head.ref, 'release/')
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for open backmerge PR from main to dev
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const checkBackmerge = require('./.github/scripts/check-backmerge.js');
+            await checkBackmerge({ github, context, core, baseBranch: "main", targetBranch: "dev" });

@@ -82,3 +82,9 @@ See the [LICENSE](LICENSE) file for details.
 ## 👤 Author
 **Oleh Shevtsiv**  
 LinkedIN: https://www.linkedin.com/in/olegshevtsiv/
+
+---
+
+> ### P.S.
+> ![Oh no, I was catched😢](etc/img/I_see_youu.png)
+> # 👀
