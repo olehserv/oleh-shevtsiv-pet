@@ -1,4 +1,4 @@
-# Fulcrum Software Test task by Oleh Shevtsiv
+# PET project by Oleh Shevtsiv
 
 ## 📌 Overview
 
